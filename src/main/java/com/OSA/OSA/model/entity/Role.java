@@ -1,12 +1,17 @@
 package com.OSA.OSA.model.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -22,6 +27,23 @@ public class Role implements Serializable{
     
     @Column(name = "name", unique = true, nullable = false)
 	private String name;
+    
+    
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<User> users = new HashSet<>();
+    
+    public Role() {
+    	
+    }
+    
+    
+    
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 	public Integer getId() {
 		return id;
 	}

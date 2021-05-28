@@ -1,11 +1,12 @@
 package com.OSA.OSA.payload;
 
+import java.sql.Date;
 import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class SignupRequest {
+public class SalesmenSignupRequest {
 	
 	@NotBlank
 	private String firstname;
@@ -22,6 +23,10 @@ public class SignupRequest {
 	
 	private String adress;
 	
+	private Date begin_date;
+	
+	private String name;
+	
     
     private Set<String> role;
     
@@ -29,10 +34,23 @@ public class SignupRequest {
     @Size(min = 6, max = 40)
     private String password;
   
-    
-    
-    
-    public String getAdress() {
+    public Date getBegin_date() {
+		return begin_date;
+	}
+
+	public void setBegin_date(Date begin_date) {
+		this.begin_date = begin_date;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAdress() {
 		return adress;
 	}
 
@@ -87,5 +105,7 @@ public class SignupRequest {
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
 	}
-    
+	
+	
+
 }

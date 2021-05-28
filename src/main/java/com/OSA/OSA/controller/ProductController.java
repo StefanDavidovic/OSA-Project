@@ -53,7 +53,7 @@ public class ProductController {
         return new ResponseEntity<>(new ProductDTO(product), HttpStatus.OK);
     }
     
-    @PostMapping(consumes = "application/json")
+    @PostMapping(consumes = "application/json", value = "new")
     public ResponseEntity<ProductDTO> saveProduct(@RequestBody ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
@@ -65,7 +65,7 @@ public class ProductController {
         return new ResponseEntity<>(new ProductDTO(product), HttpStatus.CREATED);
     }
     
-    @PutMapping(value = "/{id}", consumes = "application/json")
+    @PutMapping(value = "edit/{id}", consumes = "application/json")
     public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO, @PathVariable("id") Integer id) {
         // A product must exist
         Product product = productService.findOne(id);
@@ -85,7 +85,7 @@ public class ProductController {
         return new ResponseEntity<>(new ProductDTO(product), HttpStatus.OK);
     }
     
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable("id") Integer id) {
         Product product = productService.findOne(id);
         if (product != null) {

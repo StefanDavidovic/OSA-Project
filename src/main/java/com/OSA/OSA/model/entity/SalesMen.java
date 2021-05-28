@@ -23,14 +23,47 @@ public class SalesMen{
     @Column(name = "salesmen_id", unique = true, nullable = false)
 	private Integer id;
 	
-    @Column(name = "beginDate", unique = true, nullable = false)
-	private Date beginDate;
+
 	
     @Column(name = "adress", unique = true, nullable = false)
 	private String adress;
+    
+    @Column(name = "beginDate", unique = true, nullable = false)
+	private Date beginDate;
 	
     @Column(name = "name", unique = true, nullable = false)
 	private String name;
+    
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	private User user;
+    
+    public SalesMen() {
+    	
+    }
+    
+    
+
+	public SalesMen(String adress, Date beginDate, String name) {
+		this.adress = adress;
+		this.beginDate = beginDate;
+		this.name = name;
+	}
+	
+	
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 
 	public Integer getId() {
 		return id;
