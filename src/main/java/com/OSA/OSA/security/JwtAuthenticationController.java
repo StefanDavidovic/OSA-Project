@@ -104,9 +104,7 @@ public class JwtAuthenticationController {
 
 
 		User user = new User(signUpRequest.getUsername(), signUpRequest.getFirstname(), signUpRequest.getLastname(), encoder.encode(signUpRequest.getPassword()), signUpRequest.isBlocked() == true);
-
 		
-//		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		
 		Role userRole = roleRepository.findByName("BUYER")
@@ -137,9 +135,7 @@ public class JwtAuthenticationController {
 
 
 		User user = new User(signUpRequest.getUsername(), signUpRequest.getFirstname(), signUpRequest.getLastname(), encoder.encode(signUpRequest.getPassword()), signUpRequest.isBlocked() == true);
-
 		
-//		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		
 		Role userRole = roleRepository.findByName("SALESMEN")

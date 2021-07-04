@@ -21,7 +21,7 @@ public class UserDTO {
 		
 	}
 	
-	public UserDTO(String username, String firstname, String lastname, String password, boolean blocked) {
+	public UserDTO(Integer id, String username, String firstname, String lastname, String password, boolean blocked) {
 		this.id = id;
 		this.username = username;
 		this.firstname = firstname;
@@ -31,7 +31,7 @@ public class UserDTO {
 	}
 	
     public UserDTO(User user) {
-        this(user.getUsername(), user.getFirstname(),
+        this(user.getId(),user.getUsername(), user.getFirstname(),
         		user.getLastname(), user.getPassword(), user.isBlocked());
     }
 

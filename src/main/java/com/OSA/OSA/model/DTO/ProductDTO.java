@@ -1,8 +1,16 @@
 package com.OSA.OSA.model.DTO;
 
 import java.math.BigDecimal;
+import java.sql.Blob;
+
+import javax.persistence.Lob;
 
 import com.OSA.OSA.model.entity.Product;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 public class ProductDTO {
 
@@ -14,6 +22,8 @@ public class ProductDTO {
 
     private BigDecimal price;
     
+    @Lob
+//    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private String image_src;
     
     public ProductDTO() {
@@ -39,7 +49,7 @@ public class ProductDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+//	@JsonIgnore
 	public String getName() {
 		return name;
 	}
@@ -67,7 +77,8 @@ public class ProductDTO {
 	public String getImage_src() {
 		return image_src;
 	}
-
+	
+//    @JsonProperty("image_src")
 	public void setImage_src(String image_src) {
 		this.image_src = image_src;
 	}

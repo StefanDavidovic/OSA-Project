@@ -10,7 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "products")
@@ -29,6 +34,7 @@ public class Product implements Serializable {
 
     @Column(name = "price", unique = false, nullable = false)
     private BigDecimal price;
+
 
     @Column(name = "image_src", unique = false, nullable = false)
     private String image_src;
@@ -71,9 +77,15 @@ public class Product implements Serializable {
 	public String getImage_src() {
 		return image_src;
 	}
+	
+//	@JsonProperty("name")
+//	public void setImage_src(byte[] image_src) {
+//		this.image_src = image_src;
+//	}
 
 	public void setImage_src(String image_src) {
 		this.image_src = image_src;
+		
 	}
     
     

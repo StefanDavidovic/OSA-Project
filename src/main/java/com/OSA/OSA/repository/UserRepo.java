@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.OSA.OSA.model.DTO.UserDTO;
 import com.OSA.OSA.model.entity.User;
 
-public interface UserRepo extends CrudRepository<User, Integer>{
+public interface UserRepo extends JpaRepository<User, Integer>{
 	
 	@Query(value = "SELECT u FROM User u WHERE u.username = :username")
 	User getUserByUsername(@Param("username") String username);
